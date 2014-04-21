@@ -10,6 +10,7 @@ body {padding:10px; font-size:12px;}
 h1 {font-size:25px; line-height:35px; padding:10px 0; text-align:center;}
 h2 {font-size:18px; border-left:3px solid #CCC; text-indent:10px;}
 h3 {font-size:12px; color:#999;}
+.gogit { font-size:12px; font-weight:normal;}
 .eval { padding-left:20px;}
 .eval * {vertical-align:middle;}
 </style>
@@ -21,7 +22,7 @@ $(function(){
 	$("div.eval button").on("click",function(){
 		var cold = $(this).parent().find("textarea").val()
 		try{
-		eval(cold);
+			eval(cold);
 		}catch(e){
 			alert(e)
 		}
@@ -30,18 +31,18 @@ $(function(){
 </script>
 </head>
 <body>
-<h1>jquery UI Dialog 语法糖</h1>
+<h1>jquery UI Dialog 语法糖 <a href="https://github.com/cnwhy/qida.D" class="gogit">&gt;&gt; GitHub</a></h1>
 <h2>普通提示框：qida.D.alert</h2>
     <div class="eval">
         <h3>普通调用：</h3>
-        <textarea cols="100" rows="2">qida.D.alert("提示内容！")</textarea>
+        <textarea cols="100" rows="2">qida.D.alert("提示内容！")
+//qida.D.alert("提示内容1","标题",function(){alert("回调")})</textarea>
         <button>运行</button>
     </div>
     <div class="eval">
         <h3>标题，模态窗口，回调函数：</h3>
         <textarea cols="100" rows="4">
-qida.D.alert("提示内容1","标题",function(){alert("回调")})
-//qida.D.alert("提示内容2","标题",true,function(){alert("回调")}) //模态
+qida.D.alert("提示内容2","标题",true,function(){alert("回调")}) //模态窗口
 //qida.D.alert("提示内容500px").dialog("option","width","500px") //重新设定宽度
 //qida.D.alert($("<div>123123</div>"))</textarea>
         <button>运行</button>
@@ -49,7 +50,8 @@ qida.D.alert("提示内容1","标题",function(){alert("回调")})
 <h2>自动关闭提示框：qida.D.tip</h2>
     <div class="eval">
         <h3>调用方法</h3>
-        <textarea cols="100" rows="2">qida.D.tip("提示内容！")</textarea>
+        <textarea cols="100" rows="2">qida.D.tip("提示内容！")
+//qida.D.tip("提示内容！",3000,function(){alert(1)})</textarea>
         <button>运行</button>
     </div>    
 <h2>出错提示框：qida.D.err</h2>
@@ -110,7 +112,5 @@ qida.D.confirm(showbox,"标题",function(o){alert($(o).html());return false;});<
 qida.D.dialog('<div style="padding:20px;">自定义</div>',{title:"123123",modal:true,width:400,height:200});</textarea>
         <button>运行</button>
     </div>
-
-
 </body>
 </html>
