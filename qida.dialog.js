@@ -27,6 +27,7 @@ qida.D = {
         width: '300',
         minHeight : 'none',
         closeText : '关闭',
+        dialogClass: 'qida-dialog',
         modal: false,
         resizable: false,
         external: true,
@@ -59,6 +60,7 @@ qida.D = {
 				$(this).dialog('close');
 			}}
         }
+
 		if(arguments.length>2){
 			if(typeof arguments[2] != "function"){
 				option.modal = !!arguments[2];
@@ -88,41 +90,53 @@ qida.D = {
         	,option = {
 				modal: true,
 				title : title || '提示',
-				buttons: {}
+				buttons: []
 			}
 			,yesfun,nofun;
 			
 		yesfun = yes;
 		nofun = no;
 		var buttons = {
-				'确定':function(){
-					if(typeof(yesfun) == 'function'){
-						if(yesfun(this) !== false) $(this).dialog('close')
-					}else{
-						$(this).dialog('close')
-					}
-				}
-				,'取消':function(){
-					if(typeof(nofun) == 'function'){
-						if(nofun(this) !== false) $(this).dialog('close')
-					}else{
-						$(this).dialog('close')
-					}
-				}
-			}
-		var addbutton = function(txt,obj){
-			if(qida.typeOf(obj)=="array"){
-				var text = obj[0]
-					,fun = obj[1] || buttons[txt];
-				option.buttons[text] = function(){
-						if(fun(this) !== false) $(this).dialog('close')
-					};
-			}else{
-				option.buttons[txt] = buttons[txt]
-			}		
-		}
-		addbutton('确定',yesfun)
-		addbutton('取消',nofun)
+                'Y':{
+                    text : "确定", 
+                    class : 'but_yes',
+                    click : function(){
+                        if(typeof(yesfun) == 'function'){
+                            if(yesfun(this) !== false) $(this).dialog('close')
+                        }else{
+                            $(this).dialog('close')
+                        }
+                    }
+                }
+                ,'N':{
+                    text : "取消", 
+                    class : 'but_no',
+                    click : function(){
+                        if(typeof(nofun) == 'function'){
+                            if(nofun(this) !== false) $(this).dialog('close')
+                        }else{
+                            $(this).dialog('close')
+                        }
+                    }
+                }
+            }
+        var addbutton = function(txt,obj,e){
+            var type = qida.typeOf(obj)
+            if(type == "array"){
+                var butobj = {text: obj[0],class:buttons[txt].class}
+                    ,fun = qida.typeOf(obj[1]) == "function" ? obj[1] : function(){$(this).dialog('close')};
+                butobj.click = function(){
+                        if(fun(this) !== false) $(this).dialog('close')
+                    };
+                option.buttons.push(butobj);
+            }else if(type == 'object' && obj.text){
+                option.buttons.push(obj)
+            }else{
+                option.buttons.push(buttons[txt]) 
+            }       
+        }
+        addbutton('Y',yesfun,1)
+        addbutton('N',nofun,0)
         if(qida.typeOf(content) == 'jquery' || qida.typeOf(content) == 'element'){
             obj = $("<div></div>").append($(content));
         }else{

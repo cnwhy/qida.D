@@ -33,21 +33,24 @@
 /*遮罩*/
 .ui-widget-overlay {opacity: .3; filter: Alpha(Opacity=30);}
 /*弹出框*/
-.ui-widget-content { border:0 none; background:#FFF; color:#505050;}
-.ui-dialog,.ui-dialog-titlebar {border-radius:0; padding:0; border:0 none;}
-.ui-dialog { box-shadow:0 0 8px -1px #000; border-bottom:1px solid #EFEFEF;}
-.ui-dialog .ui-dialog-titlebar {background:#2E3F49; height:35px; line-height:35px; overflow:hidden; padding:0; color:#FFF;}
-.ui-dialog .ui-dialog-title {margin:0 0 0 10px;}
-.ui-dialog .ui-dialog-buttonpane {padding:0px 10px 20px 10px; text-align:center; margin:0;}
-.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {float:none;}
-.ui-dialog .ui-dialog-content {padding:0; }
-.ui-dialog .ui-dialog-content,.ui-dialog .ui-dialog-buttonpane {border:1px solid #EFEFEF; border-top:0 none; border-bottom:0 none;}
-.ui-dialog .ui-dialog-content .ui-dialog-alert {padding:25px 10px; text-align:center; font-size:14px;}
-.ui-dialog .ui-dialog-content .ui-dialog-alert form {line-height:35px;}
-.ui-dialog .ui-dialog-buttonpane button {margin:0 5px;}
-table.tablemsg {width: 100%}
-table.tablemsg,table.tablemsg td,table.tablemsg th { border: 0 none; padding:0;}
-table.tablemsg td.ico { width:70px; text-align: right; font-size:25px; padding-right:20px;}
-table.tablemsg td.msgtext { text-align: left;}
-table.tablemsg td.err {color:#F00;}
-table.tablemsg td.suss {color:#390;}
+.qida-dialog .ui-widget-content { border:0 none; background:#FFF; color:#505050;}
+.qida-dialog,.qida-dialog .ui-dialog-titlebar {border-radius:0; padding:0; border:0 none;}
+.qida-dialog { box-shadow:0 0 8px -1px #000; border-bottom:1px solid #EFEFEF;}
+.qida-dialog .ui-dialog-titlebar {background:#2E3F49; height:35px; line-height:35px; overflow:hidden; padding:0; color:#FFF;}
+.qida-dialog .ui-dialog-title {margin:0 0 0 10px;}
+.qida-dialog .ui-dialog-buttonpane {padding:0px 10px 20px 10px; text-align:center; margin:0;}
+.qida-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {float:none;}
+.qida-dialog .ui-dialog-content {padding:0; }
+.qida-dialog .ui-dialog-content,.qida-dialog .ui-dialog-buttonpane {border:1px solid #EFEFEF; border-top:0 none; border-bottom:0 none;}
+.qida-dialog .ui-dialog-content .ui-dialog-alert {padding:25px 10px; text-align:center; font-size:14px;}
+.qida-dialog .ui-dialog-content .ui-dialog-alert form {line-height:35px;}
+.qida-dialog .ui-dialog-buttonpane button {margin:0 5px;}
+.qida-dialog .ui-dialog-buttonpane button.but_yes .ui-button-text {background-color:#2698d9; color: #fff;}
+.qida-dialog .ui-dialog-buttonpane button.but_yes:hover .ui-button-text {background-color: #117ebc; color: #fff;}
+.qida-dialog table.tablemsg {width: 100%}
+.qida-dialog table.tablemsg,table.tablemsg td,table.tablemsg th { border: 0 none; padding:0;}
+.qida-dialog table.tablemsg td.ico { width:70px; text-align: right; font-size:25px; padding-right:20px;}
+.qida-dialog table.tablemsg td.msgtext { text-align: left;}
+.qida-dialog table.tablemsg td.err {color:#F00;}
+.qida-dialog table.tablemsg td.suss {color:#390;}
+.qida-dialog .ui-dialog-buttonpane button.but_yes .ui-button-text {background-color: 
