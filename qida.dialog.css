@@ -53,4 +53,4 @@
 .qida-dialog table.tablemsg td.msgtext { text-align: left;}
 .qida-dialog table.tablemsg td.err {color:#F00;}
 .qida-dialog table.tablemsg td.suss {color:#390;}
-.qida-dialog .ui-dialog-buttonpane button.but_yes .ui-button-text {background-color: 
+.qida-dialog .ui-dialog-buttonpane button.but_yes .ui-button-text {}
