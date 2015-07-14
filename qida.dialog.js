@@ -21,7 +21,7 @@ qida.typeOf = qida.typeOf || function(obj){
 }
 
 //jQuery UI Dialog 语法糖
-var dialog = {
+var dialog = qida.D = {
     defindeOp : {//弹出提示的默认配置
         title: 'dialog',
         width: '300',
