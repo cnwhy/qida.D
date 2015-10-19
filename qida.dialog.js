@@ -1,9 +1,8 @@
 //jQuery UI Dialog 语法糖
-//依赖：jQuery ，jQuery UI ， qidaClass 
+//依赖：jQuery ，jQuery UI
 
-var qida = qida || {};
 
-qida.typeOf = qida.typeOf || function(obj){
+var typeOf = function(obj){
     var test = typeof(obj);
     var types = { 'array' : Array,'date' : Date,'error' : Error,'regexp' : RegExp}
     if(obj !== obj) return 'nan'
@@ -21,7 +20,7 @@ qida.typeOf = qida.typeOf || function(obj){
 }
 
 //jQuery UI Dialog 语法糖
-var dialog = qida.D = {
+var dialog = {
     defindeOp : {//弹出提示的默认配置
         title: 'dialog',
         width: '300',
@@ -74,7 +73,7 @@ var dialog = qida.D = {
                 }
             }
         }
-        if(qida.typeOf(content) == 'jquery' || qida.typeOf(content) == 'element'){
+        if(typeOf(content) == 'jquery' || typeOf(content) == 'element'){
             obj = $("<div>").append($(content));
         }else{
             obj.find(this.style.confirm.textselect).html(content)
@@ -121,10 +120,10 @@ var dialog = qida.D = {
                 }
             }
         var addbutton = function(txt,obj,e){
-            var type = qida.typeOf(obj)
+            var type = typeOf(obj)
             if(type == "array"){
                 var butobj = {text: obj[0],'class':buttons[txt]['class']}
-                    ,fun = qida.typeOf(obj[1]) == "function" ? obj[1] : function(){$(this).dialog('close')};
+                    ,fun = typeOf(obj[1]) == "function" ? obj[1] : function(){$(this).dialog('close')};
                 butobj.click = function(){
                         if(fun(this) !== false) $(this).dialog('close')
                     };
@@ -137,7 +136,7 @@ var dialog = qida.D = {
         }
         addbutton('Y',yesfun,1)
         addbutton('N',nofun,0)
-        if(qida.typeOf(content) == 'jquery' || qida.typeOf(content) == 'element'){
+        if(typeOf(content) == 'jquery' || typeOf(content) == 'element'){
             obj = $("<div></div>").append($(content));
         }else{
             obj.find(this.style.confirm.textselect).html(content)
@@ -211,7 +210,7 @@ var dialog = qida.D = {
     ,dialog: function(content,op){
         var obj = $('<div></div>')
             ,option = op ? op : {}
-        if(qida.typeOf(content) == 'jquery' || qida.typeOf(content) == 'element'){
+        if(typeOf(content) == 'jquery' || typeOf(content) == 'element'){
             obj.append($(content))
         }else{
             obj.html(content)
