@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>qida.D Demo</title>
+<title>Demo</title>
 <script src="../jquery-ui-1.10.4/js/jquery-1.10.2.js"></script>
 <script src="../jquery-ui-1.10.4/js/jquery-ui-1.10.4.custom.js"></script>
 <style>
@@ -31,68 +31,68 @@ $(function(){
 </head>
 <body>
 <h1>jquery UI Dialog 语法糖</h1>
-<h2>普通提示框：qida.D.alert</h2>
+<h2>普通提示框：dialog.alert</h2>
     <div class="eval">
         <h3>普通调用：</h3>
-        <textarea cols="100" rows="2">qida.D.alert("提示内容！")</textarea>
+        <textarea cols="100" rows="2">dialog.alert("提示内容！")</textarea>
         <button>运行</button>
     </div>
     <div class="eval">
         <h3>标题，模态窗口，回调函数：</h3>
         <textarea cols="100" rows="4">
-qida.D.alert("提示内容1","标题",function(){alert("回调")})
-//qida.D.alert("提示内容2","标题",true,function(){alert("回调")}) //模态
-//qida.D.alert("提示内容500px").dialog("option","width","500px") //重新设定宽度
-//qida.D.alert($("<div>123123</div>"))</textarea>
+dialog.alert("提示内容1","标题",function(){alert("回调")})
+//dialog.alert("提示内容2","标题",true,function(){alert("回调")}) //模态
+//dialog.alert("提示内容500px").dialog("option","width","500px") //重新设定宽度
+//dialog.alert($("<div>123123</div>"))</textarea>
         <button>运行</button>
     </div>
-<h2>自动关闭提示框：qida.D.tip</h2>
+<h2>自动关闭提示框：dialog.tip</h2>
     <div class="eval">
         <h3>调用方法</h3>
-        <textarea cols="100" rows="2">qida.D.tip("提示内容！")</textarea>
+        <textarea cols="100" rows="2">dialog.tip("提示内容！")</textarea>
         <button>运行</button>
     </div>    
-<h2>出错提示框：qida.D.err</h2>
+<h2>出错提示框：dialog.err</h2>
     <div class="eval">
         <h3>调用与alert一至</h3>
-        <textarea cols="100" rows="2">qida.D.err("提示内容！")</textarea>
+        <textarea cols="100" rows="2">dialog.err("提示内容！")</textarea>
         <button>运行</button>
     </div>
-<h2>成功提示框：qida.D.suss</h2>
+<h2>成功提示框：dialog.suss</h2>
     <div class="eval">
         <h3>普通调用</h3>
-        <textarea cols="100" rows="2">qida.D.suss("提示内容！")</textarea>
+        <textarea cols="100" rows="2">dialog.suss("提示内容！")</textarea>
         <button>运行</button>
     </div>
     <div class="eval">
         <h3>调用自动关闭延时修改</h3>
-        <textarea cols="100" rows="2">qida.D.suss("提示内容！","3秒后关闭",3000)
-qida.D.suss("提示内容！","不自动关闭",0) //不自动关闭</textarea>
+        <textarea cols="100" rows="2">dialog.suss("提示内容！","3秒后关闭",3000)
+dialog.suss("提示内容！","不自动关闭",0) //不自动关闭</textarea>
         <button>运行</button>
     </div>
-<h2>选择提示框：qida.D.confirm</h2>
+<h2>选择提示框：dialog.confirm</h2>
     <div class="eval">
         <h3>普通调用</h3>
         <textarea cols="100" rows="2">
-qida.D.confirm("提示内容！","标题",function(){alert("yes")},function(){alert("no")})</textarea>
+dialog.confirm("提示内容！","标题",function(){alert("yes")},function(){alert("no")})</textarea>
         <button>运行</button>
     </div>
     <div class="eval">
         <h3>定义安钮文字</h3>
         <textarea cols="100" rows="2">
-qida.D.confirm("提示内容！","标题",["YES",function(){alert("yes")}],["NO",function(){alert("no")}])</textarea>
+dialog.confirm("提示内容！","标题",["YES",function(){alert("yes")}],["NO",function(){alert("no")}])</textarea>
         <button>运行</button>
     </div>
     <div class="eval">
         <h3>不关闭窗口</h3>
         <textarea cols="100" rows="2">
-qida.D.confirm("提示内容！","标题",function(){alert("yes"); return false;},function(){alert("no");return false;})</textarea>
+dialog.confirm("提示内容！","标题",function(){alert("yes"); return false;},function(){alert("no");return false;})</textarea>
         <button>运行</button>
     </div>
     <div class="eval">
         <h3>获取内容</h3>
         <textarea cols="100" rows="2">
-qida.D.confirm('<input type="text" value="123">',"标题",function(o){alert($(o).find('input').val()); return false;})</textarea>
+dialog.confirm('<input type="text" value="123">',"标题",function(o){alert($(o).find('input').val()); return false;})</textarea>
         <button>运行</button>
     </div>
    	<div class="eval">
@@ -100,14 +100,14 @@ qida.D.confirm('<input type="text" value="123">',"标题",function(o){alert($(o)
         <textarea cols="100" rows="3">
 var showbox = $('<div style="text-align:center; padding:10px;"><button>绑定事件</button></div>');
     showbox.find("button").on("click",function(){alert("1")}); //先绑事件
-qida.D.confirm(showbox,"标题",function(o){alert($(o).html());return false;});</textarea>
+dialog.confirm(showbox,"标题",function(o){alert($(o).html());return false;});</textarea>
         <button>运行</button>
     </div>
-<h2>自定义：qida.D.dialog</h2>
+<h2>自定义：dialog.dialog</h2>
    	<div class="eval">
         <h3>自定义(第二个参数，类似jquery UI dialog的初始化参数)</h3>
         <textarea cols="100" rows="2">
-qida.D.dialog('<div style="padding:20px;">自定义</div>',{title:"123123",modal:true,width:400,height:200});</textarea>
+dialog.dialog('<div style="padding:20px;">自定义</div>',{title:"123123",modal:true,width:400,height:200});</textarea>
         <button>运行</button>
     </div>
 
